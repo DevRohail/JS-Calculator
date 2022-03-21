@@ -55,11 +55,14 @@ class Calculator {
         this.operation = undefined
         this.previousOperand = ''
     }
-
+getDisplayNumber(number)
 
     updateDisplay() {
         this.currentOperandTextElement.innerText = this.currentOperand
-        this.previousOperandTextElement.innerText = this.previousOperand
+        if (this.operation != null) {
+            this.previousOperandTextElement.innerText = this.previousOperand = 
+                `${this.previousOperand} ${this.operation}`
+        }
     }
 }
 
@@ -94,6 +97,16 @@ equalsButton.addEventListener('click', button => {
     calculator.compute()
     calculator.updateDisplay()
 })
+allClearButton.addEventListener('click', button => {
+    calculator.clear()
+    calculator.updateDisplay()
+})
+deleteButton.addEventListener('click', button => {
+    calculator.delete()
+    calculator.updateDisplay()
+})
+
+
 
 
 
