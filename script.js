@@ -56,18 +56,14 @@ class Calculator {
         this.previousOperand = ''
     }
 getDisplayNumber(number){
-    const stringNumber = numbertoString()
-    const integerDigits = parseFloat(stringNumber.split('.')[0])
-    const floatNumber = parseFloat(number)
-    if (isNaN(floatNumber)) return ''
-    return floatNumber.toLocaleString('en')
-
+    return number
 }
+
 
     updateDisplay() {
         this.currentOperandTextElement.innerText = this.getDisplayNumber (this.currentOperand)
         if (this.operation != null) {
-            this.previousOperandTextElement.innerText = this.previousOperand = 
+            this.previousOperandTextElement.innerText =
                 `${this.getDisplayNumber (this.previousOperand)} ${this.operation}`
         }
     }
@@ -104,16 +100,16 @@ equalsButton.addEventListener('click', button => {
     calculator.compute()
     calculator.updateDisplay()
 })
+
 allClearButton.addEventListener('click', button => {
     calculator.clear()
     calculator.updateDisplay()
 })
+
 deleteButton.addEventListener('click', button => {
     calculator.delete()
     calculator.updateDisplay()
 })
-
-
 
 
 
@@ -128,11 +124,9 @@ plus = Sum
 minus = subtract
 multiply = multiply
 divide = divide
-
 On each button down - check what type of button is clicked 
     is it a number button or an equal button or is it a mathemical operation button
     if its an equal sign clicked then if the text box is empty - you dont wanna do anything
-
 1) when a number button is clicked or pressed write in the text box the number
 2) Append the next number button clicked to the text from (1) as text 
 3) keep doing this until an mathematical function button is clicked
